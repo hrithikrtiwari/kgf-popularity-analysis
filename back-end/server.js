@@ -1,14 +1,15 @@
 const express = require("express");
 const app = express();
 var XLSX = require("xlsx");
-var workbook = XLSX.readFile("../demo.xlsx");
+var cors = require("cors");
+var workbook = XLSX.readFile("../npk-data.xlsx");
 var sheet_name_list = workbook.SheetNames;
 console.log(sheet_name_list); // getting as Sheet1
 
-// sheet_name_list.forEach(function (y) {
-  var worksheet = workbook.Sheets['Sheet1'];
-  var headers = {};
-  var data = [];
+var data = [];
+var headers = {};
+sheet_name_list.forEach(function (sheet_name) {
+  var worksheet = workbook.Sheets[sheet_name];
   for (z in worksheet) {
     if (z[0] === "!") continue;
     //parse out the column, row, and value
@@ -34,9 +35,10 @@ console.log(sheet_name_list); // getting as Sheet1
   //drop those first two rows which are empty
   data.shift();
   data.shift();
-  console.log(data);
+  console.table(data);
+}); //close forEach
 
-
+app.use(cors());
 app.get("/", function (req, res) {
   res.send(data);
 });
