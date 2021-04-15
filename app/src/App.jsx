@@ -1,38 +1,29 @@
-import { useState } from 'react';
-import Image from '../src/images/plant.jpg';
+import { useState } from "react";
+import Image from "../src/images/plant.jpg";
 import Image2 from "../src/images/plant2.jpg";
-import axios from 'axios';
+import axios from "axios";
 import "./App.css";
+import LoginComponent from "./components/login-component";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 var excelPromise = axios.get("http://localhost:8000/");
 
-var mainArray =[];
+var mainArray = [];
 
 // resolving the promise
 excelPromise
   .then(function (dataArrayValueAsMap) {
     // for (var x = 0; dataArrayValueAsMap.data.length > x; x++) {
-        // console.log(dataArrayValueAsMap);
-      mainArray= dataArrayValueAsMap.data;
-      console.log(mainArray);
+    // console.log(dataArrayValueAsMap);
+    mainArray = dataArrayValueAsMap.data;
+    console.log(mainArray);
     // }
   })
-  .catch((err) => console.error("Error fetching the excel file"+ err));
+  .catch((err) => console.error("Error fetching the excel file" + err));
 
+const labels = ["Tv Show", "Person", "Email ID", "AGE", "Gender","Location","Person","Rating","Comment"];
 
-
-const labels = [
-  "Nitrogen",
-  "Phosphorous",
-  "Potassium",
-  "Soil_PH",
-];
-
-
-const Images = [
-    Image,
-    Image2
-];
+const Images = [Image, Image2];
 const Combo = () => {
   return (
     <>
@@ -53,33 +44,25 @@ const Combo = () => {
   );
 };
 
-
 function App() {
-    const [imageIndex,setImageIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
   return (
-    <div className="">
-      <div className="header primary-dark text-center font-header">
-        SMART FARMING SYSTEM
-      </div>
-      <div className="app container-fluid d-flex flex-column-reverse flex-md-row min-vh-100 px-4">
-          {/* empty */}
-          <div className="col-md-2"></div>
-        <div className="col-12 col-md-6 p-4">
-          <Combo />
-        </div>
-        <div className=" p-4 col-12 col-md-4">
-            <div className="d-flex flex-column justify-content-around align-items-center  h-50">
-                 <div className="name">Plant Suggest</div>
-                    <div className="name">
-                        <img src={Images[imageIndex]} alt="plant"/>
-                    </div>
-                    <div className="name glass-btn" style={{"cursor":"pointer"}} onClick={() => setImageIndex(imageIndex+1)}>
-                        Next Info
-                    </div>
-            </div>
+    <Router>
+      <div className="">
+        <div className="header primary-dark text-center font-header">
+          TV SHOW POPULARITY ANALYSIS
         </div>
       </div>
-    </div>
+      <Switch>
+        <Route path="/home">
+            <Combo/>
+          <br />
+        </Route>
+        <Route path="/">
+          <LoginComponent />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 var XLSX = require("xlsx");
 var cors = require("cors");
-var workbook = XLSX.readFile("../npk-data.xlsx");
+var workbook = XLSX.readFile("../Data.xlsx");
 var sheet_name_list = workbook.SheetNames;
 console.log(sheet_name_list); // getting as Sheet1
 
