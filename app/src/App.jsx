@@ -64,17 +64,17 @@ const Combo = () => {
               <td className="col-1"><b>{labels[8]}</b></td>
               <td className="col-1"><b>{labels[9]}</b></td>
             </tr>
-            <tr>
-              <td>{subArray[labels[0]]}</td>
-              <td>{subArray[labels[1]]}</td>
-              <td>{subArray[labels[2]]}</td>
-              <td>{subArray[labels[3]]}</td>
-              <td>{subArray[labels[4]]}</td>
-              <td>{subArray[labels[5]]}</td>
-              <td>{subArray[labels[6]]}</td>
-              <td>{subArray[labels[7]]}</td>
-              <td>{subArray[labels[8]]}</td>
-              <td>{subArray[labels[9]]}</td>
+            <tr className="row">
+              <td className="col-1">{subArray[labels[0]]}</td>
+              <td className="col-1">{subArray[labels[1]]}</td>
+              <td className="col-1">{subArray[labels[2]]}</td>
+              <td className="col-1">{subArray[labels[3]]}</td>
+              <td className="col-1">{subArray[labels[4]]}</td>
+              <td className="col-1">{subArray[labels[5]]}</td>
+              <td className="col-1">{subArray[labels[6]]}</td>
+              <td className="col-1">{subArray[labels[7]]}</td>
+              <td className="col-1">{subArray[labels[8]]}</td>
+              <td className="col-1">{subArray[labels[9]]}</td>
             </tr>
           </table>
         </>
