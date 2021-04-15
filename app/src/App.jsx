@@ -21,7 +21,17 @@ excelPromise
   })
   .catch((err) => console.error("Error fetching the excel file" + err));
 
-const labels = ["Tv Show", "Person", "Email ID", "AGE", "Gender","Location","Person","Rating","Comment"];
+const labels = [
+  "Tv  Show",
+  "Person",
+  "Email ID",
+  "AGE",
+  "Gender",
+  "Location",
+  "Person",
+  "Rating",
+  "Comment",
+];
 
 const Combo = () => {
   return (
@@ -39,6 +49,24 @@ const Combo = () => {
           </div>
         </div>
       ))}
+      {mainArray.map((subArray, index) => (
+        <>
+          <table border="1">
+            <tr>
+              <td>{subArray[labels[0]]}</td>
+              <td>{subArray[labels[1]]}</td>
+              <td>{subArray[labels[2]]}</td>
+              <td>{subArray[labels[3]]}</td>
+              <td>{subArray[labels[4]]}</td>
+              <td>{subArray[labels[5]]}</td>
+              <td>{subArray[labels[6]]}</td>
+              <td>{subArray[labels[7]]}</td>
+              <td>{subArray[labels[8]]}</td>
+              <td>{subArray[labels[9]]}</td>
+            </tr>
+          </table>
+        </>
+      ))}
     </>
   );
 };
@@ -54,7 +82,7 @@ function App() {
       </div>
       <Switch>
         <Route path="/home">
-            <Combo/>
+          <Combo />
           <br />
         </Route>
         <Route path="/">
