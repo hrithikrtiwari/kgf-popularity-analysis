@@ -23,7 +23,6 @@ excelPromise
 
 const labels = ["Tv Show", "Person", "Email ID", "AGE", "Gender","Location","Person","Rating","Comment"];
 
-const Images = [Image, Image2];
 const Combo = () => {
   return (
     <>
@@ -34,7 +33,7 @@ const Combo = () => {
             <div className="wrapper justify-content-center">
               <div className="info-data justify-content-center align-content-center justify-items-center">
                 {subArray[labels[index]]}
-              </div>
+              </div>{" "}
             </div>
             <br />
           </div>
