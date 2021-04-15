@@ -51,7 +51,19 @@ const Combo = () => {
       ))}
       {mainArray.map((subArray, index) => (
         <>
-          <table border="1">
+          <table border="1" className="w-100">
+            <tr className="row">
+              <td className="col-1"><b>{labels[0]}</b></td>
+              <td className="col-1"><b>{labels[1]}</b></td>
+              <td className="col-1"><b>{labels[2]}</b></td>
+              <td className="col-1"><b>{labels[3]}</b></td>
+              <td className="col-1"><b>{labels[4]}</b></td>
+              <td className="col-1"><b>{labels[5]}</b></td>
+              <td className="col-1"><b>{labels[6]}</b></td>
+              <td className="col-1"><b>{labels[7]}</b></td>
+              <td className="col-1"><b>{labels[8]}</b></td>
+              <td className="col-1"><b>{labels[9]}</b></td>
+            </tr>
             <tr>
               <td>{subArray[labels[0]]}</td>
               <td>{subArray[labels[1]]}</td>
